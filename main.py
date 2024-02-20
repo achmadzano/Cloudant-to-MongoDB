@@ -2,18 +2,29 @@ import cloudant
 from pymongo import MongoClient
 
 # Connect to Cloudant
-cloudant_client = cloudant.Cloudant("your_cloudant_username", "your_cloudant_password", url="your_cloudant_url")
+cloudant_client = cloudant.Cloudant("apikey-v2-wlo84wtv6k4niy0zeqs6vkstccknujnhxwkoey2m09s", "54bfdf8b8ce1d263dbcd3032c7af80eb", url="https://apikey-v2-wlo84wtv6k4niy0zeqs6vkstccknujnhxwkoey2m09s:54bfdf8b8ce1d263dbcd3032c7af80eb@9480306c-6dfb-4b51-9ce7-e7450483dcb8-bluemix.cloudantnosqldb.appdomain.cloud")
 cloudant_client.connect()
-cloudant_db = cloudant_client['your_cloudant_database']
+cloudant_db = cloudant_client['ats-dev']
 
 # Connect to MongoDB
-mongo_client = MongoClient("mongodb://localhost:27017/")
-mongo_db = mongo_client['your_mongodb_database']
+mongo_client = MongoClient("mongodb+srv://achmad4512:Zano2611@cluster0.wzxfiua.mongodb.net/?retryWrites=true&w=majority")
+mongo_db = mongo_client['cloudant2mongo']
 
 # Define a dictionary to map Cloudant types to MongoDB collections
 collection_mapping = {
-    "type1": "collection1",
-    "type2": "collection2",
+    "Application": "Application",
+    "Blueform": "Blueform",
+    "User": "User",
+    "User-unverified": "User-unverified",
+    "Job": "Job",
+    "Test": "Test",
+    "EVS": "EVS",
+    "Contract": "Contract",
+    "Hiring Form": "Hiring Form",
+    "Recruiter": "Recruiter",
+    "Notification": "Notification",
+    "Onboarding_Form": "Onboarding_Form",
+    "Testimomy": "Testimomy",
     # Add more mappings as needed
 }
 
